@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Hello World in HTML - A simple testing page">
+    <title>Hello World - HTML</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #333;
+        }
+        
+        .container {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            max-width: 600px;
+            animation: fadeIn 1s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        h1 {
+            color: #667eea;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: slideIn 1s ease-out;
+        }
+        
+        @keyframes slideIn {
+            from {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        p {
+            color: #666;
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        
+        .highlight {
+            color: #764ba2;
+            font-weight: bold;
+        }
+        
+        button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            margin-top: 1rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        button:active {
+            transform: translateY(-1px);
+        }
+        
+        .info {
+            margin-top: 2rem;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Hello, World! 👋</h1>
+        <p>Welcome to the <span class="highlight">HTML Hello World</span> testing page.</p>
+        <p>This page demonstrates basic HTML5 structure with embedded CSS and JavaScript.</p>
+        
+        <button onclick="showMessage()">Click Me!</button>
+        
+        <div class="info">
+            <p><strong>Purpose:</strong> Testing and learning HTML, CSS, and JavaScript</p>
+            <p><strong>Technologies:</strong> HTML5, CSS3, JavaScript</p>
+            <p id="timestamp"></p>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript Hello World
+        console.log("Hello, World from JavaScript!");
+        
+        // Display current time
+        function updateTimestamp() {
+            const now = new Date();
+            const timestamp = now.toLocaleString();
+            document.getElementById('timestamp').innerHTML = `<strong>Last Updated:</strong> ${timestamp}`;
+        }
+        
+        // Show alert message
+        function showMessage() {
+            alert("Hello, World! 🌍\n\nThis is JavaScript in action!");
+            console.log("Button clicked at:", new Date().toLocaleString());
+        }
+        
+        // Update timestamp on page load
+        updateTimestamp();
+        
+        // Update timestamp every second
+        setInterval(updateTimestamp, 1000);
+        
+        // Log page load event
+        window.addEventListener('load', function() {
+            console.log("Page fully loaded!");
+            console.log("User Agent:", navigator.userAgent);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,141 @@
+# Sample Configuration File for Testing
+# This YAML file demonstrates common configuration patterns
+
+# Application Settings
+app:
+  name: "Test Application"
+  version: "1.0.0"
+  environment: "development"
+  debug: true
+  
+# Server Configuration
+server:
+  host: "localhost"
+  port: 8080
+  ssl:
+    enabled: false
+    certificate: "/path/to/cert.pem"
+    key: "/path/to/key.pem"
+  timeout: 30000
+  maxConnections: 100
+
+# Database Configuration
+database:
+  type: "postgresql"
+  host: "localhost"
+  port: 5432
+  name: "testdb"
+  username: "testuser"
+  password: "testpass"
+  pool:
+    min: 2
+    max: 10
+  ssl: false
+
+# Logging Configuration
+logging:
+  level: "debug"
+  format: "json"
+  outputs:
+    - type: "console"
+      level: "info"
+    - type: "file"
+      level: "debug"
+      path: "/var/log/app.log"
+      maxSize: "10mb"
+      maxFiles: 5
+
+# Feature Flags
+features:
+  newUI: true
+  betaFeatures: false
+  experimentalAPI: false
+
+# API Configuration
+api:
+  baseURL: "https://api.example.com"
+  version: "v1"
+  timeout: 5000
+  retries: 3
+  rateLimit:
+    enabled: true
+    requests: 100
+    period: 60
+
+# Email Configuration
+email:
+  provider: "smtp"
+  host: "smtp.example.com"
+  port: 587
+  secure: true
+  auth:
+    user: "noreply@example.com"
+    pass: "emailpassword"
+  from: "Test App <noreply@example.com>"
+
+# Cache Configuration
+cache:
+  enabled: true
+  type: "redis"
+  host: "localhost"
+  port: 6379
+  ttl: 3600
+  prefix: "app:"
+
+# Testing Configuration
+testing:
+  framework: "jest"
+  coverage:
+    enabled: true
+    threshold: 80
+  parallel: true
+  maxWorkers: 4
+  testMatch:
+    - "**/__tests__/**/*.test.js"
+    - "**/*.spec.js"
+
+# Security Settings
+security:
+  cors:
+    enabled: true
+    origins:
+      - "http://localhost:3000"
+      - "https://example.com"
+  headers:
+    contentSecurityPolicy: "default-src 'self'"
+    xFrameOptions: "DENY"
+    xContentTypeOptions: "nosniff"
+  encryption:
+    algorithm: "aes-256-gcm"
+    keySize: 256
+
+# Monitoring & Metrics
+monitoring:
+  enabled: true
+  provider: "prometheus"
+  endpoint: "/metrics"
+  interval: 60
+
+# External Services
+services:
+  stripe:
+    apiKey: "sk_test_example"
+    webhookSecret: "whsec_example"
+  aws:
+    region: "us-east-1"
+    accessKeyId: "AWS_ACCESS_KEY"
+    secretAccessKey: "AWS_SECRET_KEY"
+    s3:
+      bucket: "test-bucket"
+
+# Cron Jobs
+jobs:
+  - name: "cleanup"
+    schedule: "0 2 * * *"
+    enabled: true
+  - name: "backup"
+    schedule: "0 0 * * 0"
+    enabled: true
+  - name: "report"
+    schedule: "0 9 * * 1"
+    enabled: false
